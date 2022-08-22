@@ -12,7 +12,7 @@ pipeline {
         stage('GitInit') {
             steps {
                 echo 'GitInit'
-                git branch: 'main', url: 'https://github.com/Elad0109/simple-webapp-nodejs-.git
+                git branch: 'main', url: 'https://github.com/Elad0109/simple-webapp-nodejs-.git'
             }
         }
         stage('build') {
