@@ -30,8 +30,7 @@ pipeline {
                 nodejs('nodejs') {
                     run test
                     sh npm  run test
-                }
-               
+                }          
             }
         }
          stage('display') {
@@ -44,5 +43,4 @@ pipeline {
                
             }
         }
-        
     }
