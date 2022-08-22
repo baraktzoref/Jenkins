@@ -1,1 +1,13 @@
+pipeline {
+    agent any
 
+    stages {
+         stage('cleanWs') {
+            steps {
+                echo 'cleanWS'
+                //clean workspace before init
+                cleanWs()
+            }
+        }
+    }
+}
