@@ -2,11 +2,32 @@ pipeline {
     agent any
 
     stages {
-         stage('cleanWs') {
+        stage('initws') {
             steps {
-                echo 'cleanWS'
-                //clean workspace before init
+                // Clean before build
                 cleanWs()
+            }
+        }  
+    
+        stage('GitInit') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Elad0109/simple-webapp-nodejs-.git'
+            }
+        }
+        
+        stage('build') {
+            steps { 
+                sh "docker build -t nodesamplespp ."
+                sh "docker images"
+                
+            }
+        }
+
+         stage('deploy') {
+            steps { 
+                sh "docker kill nodesamplespp"
+                sh "docker rm nodesamplespp"
+                sh "docker run -itd --name nodesamplespp -p 3000:3000 nodesamplespp:latest &"
             }
         }
     }
