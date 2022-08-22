@@ -17,7 +17,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                echo 'build'
+               echo 'build'
                nodejs('nodejs') {
                     run build
                     sh npm  install
@@ -40,7 +40,7 @@ pipeline {
                     run diply
                     sh npm  run start
                 }
-               
             }
         }
+    }
     }
