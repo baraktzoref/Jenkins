@@ -1,5 +1,5 @@
 pipeline {
-    agent {label docker}
+    agent any
 
     stages {
          stage('cleanWs') {
@@ -12,7 +12,7 @@ pipeline {
         stage('GitInit') {
             steps {
                 echo 'GitInit'
-                git branch 'main', url 'httpsgithub.comElad0109simple-webapp-nodejs-'
+                git branch: 'main', url: 'https://github.com/Elad0109/simple-webapp-nodejs-.git
             }
         }
         stage('build') {
