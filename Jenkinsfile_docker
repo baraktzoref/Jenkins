@@ -25,8 +25,8 @@ pipeline {
 
          stage('deploy') {
             steps { 
-                sh "docker kill nodesamplespp"
-                sh "docker rm nodesamplespp"
+                //sh "docker kill nodesamplespp"
+                //sh "docker rm nodesamplespp"
                 sh "docker run -itd --name nodesamplespp -p 3000:3000 nodesamplespp:latest &"
             }
         }
