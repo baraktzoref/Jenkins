@@ -5,7 +5,7 @@ pipeline {
          stage('cleanWs') {
             steps {
                 echo 'cleanWS'
-                clean workspace before init
+                //clean workspace before init
                 cleanWs()
             }
         }
@@ -19,8 +19,10 @@ pipeline {
             steps {
                echo 'build'
                nodejs('nodejs') {
-                    run build
-                    sh npm  install
+                    //run build
+                    sh '''
+                        npm  install
+                    '''
                 }
             }
         }
@@ -28,8 +30,10 @@ pipeline {
             steps {
                 echo 'test'
                 nodejs('nodejs') {
-                    run test
-                    sh npm  run test
+                    //run test
+                    sh '''
+                        npm run test
+                    '''
                 }          
             }
         }
@@ -37,8 +41,10 @@ pipeline {
             steps {
                 echo 'display'
                 nodejs('nodejs') {
-                    run diply
-                    sh npm  run start
+                    //run display
+                    sh '''
+                        npm  run start
+                    '''
                 }
             }
         }
